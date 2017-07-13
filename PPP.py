@@ -4,6 +4,8 @@
 #PPP - Personal Password Profiling
 #----------------------------------
 #Author: n3st0r
+import sys
+
 
 def l33t(string, a, b):
 	return str(string).replace(a, b)
@@ -167,7 +169,7 @@ def process_data(wl):
 	dsS=["*","%","!","#"]
 	ds=[dsS, ds2, ds3, ds4]
 	#Variavel para proximo ano
-	ano=2017
+	ano=2018
 
 	#variavel para diminuir 8 anos do atual ano
 	pano= ano - 8
@@ -313,8 +315,18 @@ def get_input():
 	return {"nome":n,"aniversario":b,"celular":c,"telefone":t,"palavras-chave":d, "wireless":w,"email":e}
 
 def main():
-	wl = get_input()
-	process_data(wl)
+    if len( sys.argv ) == 1:
+        wl = get_input()
+    else:
+	wl = {
+                "nome":sys.argv[1],"aniversario":"",
+                "celular":"",
+                "telefone": "",
+                "palavras-chave": "",
+                "wireless": 1,
+                "email": 0}
+
+    process_data(wl)
 
 if __name__ == "__main__":
 	main()

@@ -26,6 +26,13 @@ def name_scrambler(string):
 
 	#cria a lista final
 	f=[]
+ 
+        for _ in d:
+            f.append(_.lower())
+            f.append(_.upper())
+            f.append(_[0:1].upper() + _[1:].lower())
+
+
 
 	#lista de palavras banidas
 	banned = ["de", "da", "do", "dos", "das"]
